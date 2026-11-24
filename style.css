@@ -1,0 +1,158 @@
+/* Vispārējais lapas noformējums */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #243047;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Lietotnes galvenais konteiners */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* Uzdevuma ievades lauks */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #bfc9d6;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Pogu noformējums */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#add-btn {
+    background-color: #2563eb;
+    color: white;
+}
+
+#add-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Filtru pogas */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.filters button {
+    background-color: #e8edf3;
+    color: #243047;
+}
+
+.filters button:hover {
+    background-color: #d5deea;
+}
+
+.filters button.active {
+    background-color: #2563eb;
+    color: white;
+}
+
+/* Uzdevumu saraksts */
+#task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#task-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.task-text {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* Izpildīta uzdevuma noformējums */
+.completed .task-text {
+    text-decoration: line-through;
+    color: #7b8494;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #2563eb;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Dzēšanas poga */
+.delete-btn {
+    background-color: #dc2626;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #b91c1c;
+}
+
+/* Atlikušo uzdevumu skaitītājs */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Tastatūras fokusa noformējums */
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 3px;
+}
+
+/* Pielāgošana maziem ekrāniem */
+@media (max-width: 480px) {
+    .container {
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+}
