@@ -156,3 +156,34 @@ input:focus-visible {
         flex-direction: column;
     }
 }
+
+
+/* JAUNS: Uzdevuma tekstu iespējams rediģēt */
+.task-text {
+    cursor: text;
+}
+
+.task-text:hover {
+    background-color: #f0f4f8;
+    border-radius: 4px;
+}
+
+/* JAUNS: Uzdevuma rediģēšanas ievades lauks */
+.edit-input {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    padding: 8px;
+    font-family: inherit;
+    font-size: inherit;
+    color: #243047;
+    background-color: #ffffff;
+    border: 2px solid #2563eb;
+    border-radius: 6px;
+    outline: none;
+}
+
+/* JAUNS: Tukša vai nederīga teksta noformējums */
+.edit-input:invalid {
+    border-color: #dc2626;
+}

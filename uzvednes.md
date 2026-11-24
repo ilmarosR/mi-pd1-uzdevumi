@@ -32,3 +32,10 @@ Izvades formäts: katrs fails atseviška koda bloka ar faila nosaukumu.
 Pēc koda 3 teikumos paskaidro, kã palaist.
 Ja kaut kas nav skaidrs, pirms koda uzdod man jautäjumus.
 ```
+
+## Uzdevuma rediģēšana
+
+```
+Pievieno uzdevuma rediģēšanas iespēju (papildfunkciju), kur ar dubultklikšķi es varu rediģet uzdevumu, ar Enter saglabā, bet ar Escape atceļ saglabāšanu (izmaiņas). Pievienoju lietotnes loģiku: app.js. Lūdzu vispirms parādi man izmaiņu plānu.
+```
+

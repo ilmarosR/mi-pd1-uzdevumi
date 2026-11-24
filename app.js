@@ -1,4 +1,5 @@
-// Iegūstam nepieciešamos HTML elementus
+
+ // Iegūstam nepieciešamos HTML elementus
 const taskInput = document.getElementById("task-input");
 const addBtn = document.getElementById("add-btn");
 const taskList = document.getElementById("task-list");
@@ -82,6 +83,74 @@ function deleteTask(id) {
     renderTasks();
 }
 
+// JAUNS: Saglabājam rediģēto uzdevuma tekstu
+function updateTask(id, newText) {
+    const text = newText.trim();
+
+    if (text === "") {
+        return false;
+    }
+
+    const task = tasks.find(task => task.id === id);
+
+    if (!task) {
+        return false;
+    }
+
+    task.text = text;
+
+    saveTasks();
+    renderTasks();
+
+    return true;
+}
+
+// JAUNS: Apstrādājam Enter un Escape taustiņus
+function handleEditKey(event, task, input, textElement) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+
+        if (!updateTask(task.id, input.value)) {
+            input.setCustomValidity("Uzdevums nedrīkst būt tukšs!");
+            input.reportValidity();
+        }
+    }
+
+    if (event.key === "Escape") {
+        event.preventDefault();
+        input.replaceWith(textElement);
+    }
+}
+
+// JAUNS: Aktivizējam uzdevuma rediģēšanas režīmu
+function startEditing(task, textElement) {
+    const input = document.createElement("input");
+
+    input.type = "text";
+    input.className = "edit-input";
+    input.value = task.text;
+    input.setAttribute("aria-label", "Rediģēt uzdevumu");
+
+    input.addEventListener("keydown", event => {
+        handleEditKey(event, task, input, textElement);
+    });
+
+    input.addEventListener("input", () => {
+        input.setCustomValidity("");
+    });
+
+    // Zaudējot fokusu, atceļam nesaglabātās izmaiņas
+    input.addEventListener("blur", () => {
+        if (input.isConnected) {
+            input.replaceWith(textElement);
+        }
+    });
+
+    textElement.replaceWith(input);
+    input.focus();
+    input.select();
+}
+
 // Atlasām uzdevumus atbilstoši filtram
 function getFilteredTasks() {
     if (currentFilter === "active") {
@@ -109,6 +178,10 @@ function createTaskElement(task) {
     const text = document.createElement("span");
     text.className = "task-text";
     text.textContent = task.text;
+
+    // JAUNS: Rediģēšana ar dubultklikšķi
+    text.title = "Dubultklikšķis, lai rediģētu";
+    text.addEventListener("dblclick", () => startEditing(task, text));
 
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "delete-btn";
