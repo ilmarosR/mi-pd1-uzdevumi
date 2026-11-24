@@ -39,3 +39,18 @@ Ja kaut kas nav skaidrs, pirms koda uzdod man jautäjumus.
 Pievieno uzdevuma rediģēšanas iespēju (papildfunkciju), kur ar dubultklikšķi es varu rediģet uzdevumu, ar Enter saglabā, bet ar Escape atceļ saglabāšanu (izmaiņas). Pievienoju lietotnes loģiku: app.js. Lūdzu vispirms parādi man izmaiņu plānu.
 ```
 
+
+```
+Turpinām ar šo plānu.
+```
+
+```
+Uztaisi tagad lietotnes aprakstu ar galvenajiem sekojošiem virsrakstiem:
+
+**## Apraksts**
+
+**## Palaišana**
+
+**## Papildfunkcija**
+```
+
